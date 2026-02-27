@@ -38,35 +38,33 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
+        displayWinMessage(humanChoice, computerChoice);
         humanScore++;
-        
-        // Prepare message
-        let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-        let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-        
-        // Decide which message to show
-        if (humanChoice === "rock" || humanChoice === "paper") {
-            console.log(`You win! ${humanChoiceCapitalized} beats ${computerChoiceCapitalized}!`);
-        } else {
-            console.log(`You win! ${humanChoiceCapitalized} beat ${computerChoiceCapitalized}!`);
-        }
-        
-        
     } else {
+        displayLossMessage(humanChoice, computerChoice)
         computerScore++;
+    }
+}
 
-        // Prepare message
-        let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-        let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-
-        // Decide which message to show
-
-        if (computerChoice === "scissors") {
-            console.log(`You lose! ${computerChoiceCapitalized} beat ${humanChoiceCapitalized}!`);
-        } else {
-            console.log(`You lose! ${computerChoiceCapitalized} beats ${humanChoiceCapitalized}!`);
-        }
+function displayWinMessage(humanChoice, computerChoice) {
+    let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+    let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
         
+    if (humanChoice === "rock" || humanChoice === "paper") {
+        console.log(`You win! ${humanChoiceCapitalized} beats ${computerChoiceCapitalized}!`);
+    } else {
+        console.log(`You win! ${humanChoiceCapitalized} beat ${computerChoiceCapitalized}!`);
+    }
+}
+
+function displayLossMessage(humanChoice, computerChoice) {
+    let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+    let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+
+    if (computerChoice === "scissors") {
+        console.log(`You lose! ${computerChoiceCapitalized} beat ${humanChoiceCapitalized}!`);
+    } else {
+        console.log(`You lose! ${computerChoiceCapitalized} beats ${humanChoiceCapitalized}!`);
     }
 }
 
