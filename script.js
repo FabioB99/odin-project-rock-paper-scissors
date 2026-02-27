@@ -28,7 +28,7 @@ function getHumanChoice() {
     }
 }
 
-
+// Need to fix the logic here -> If I have rock and the computer has paper it should work
 function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === computerChoice) {
@@ -62,19 +62,22 @@ function playGame() {
         console.log(`Round number ${i + 1}:`);
 
         humanSelection = getHumanChoice();
+        console.log(`You chose ${humanSelection.charAt(0).toUpperCase() + humanSelection.slice(1)}.`)
         computerSelection = getComputerChoice();
+        console.log(`The computer chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}.`)
 
         playRound(humanSelection,computerSelection);
         console.log(`Your score is: ${humanScore}`);
         console.log(`The computer's score is: ${computerScore}`);
     }
 
-    
+    if (humanScore === computerScore) {
+        console.log("Gamer Over: No one has won!")
+    } else if (humanScore > computerScore) {
+        console.log("Game Over: Congratulations, you are the winner!")
+    } else {
+        console.log("Game Over: You have lost!")
+    }
 }
 
 playGame();
-
-
-
-// console.log(`You chose ${humanSelection.charAt(0).toUpperCase() + humanSelection.slice(1)}.`)
-// console.log(`The computer chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}.`)
