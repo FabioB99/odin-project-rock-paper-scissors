@@ -33,19 +33,40 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === computerChoice) {
         console.log(`No one wins! Both chose ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}!`);
+
     } else if (
         humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
-        let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
-        let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-        console.log(`You win! ${humanChoiceCapitalized} beats ${computerChoiceCapitalized}!`); // Fix grammer here (scissors shoudl be singular)
         humanScore++;
-    } else {
+        
+        // Prepare message
         let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-        console.log(`You lose! ${computerChoiceCapitalized} beats ${humanChoiceCapitalized}!`); // Fix grammer here (scissors shoudl be singular)
+        
+        // Decide which message to show
+        if (humanChoice === "rock" || humanChoice === "paper") {
+            console.log(`You win! ${humanChoiceCapitalized} beats ${computerChoiceCapitalized}!`);
+        } else {
+            console.log(`You win! ${humanChoiceCapitalized} beat ${computerChoiceCapitalized}!`);
+        }
+        
+        
+    } else {
         computerScore++;
+
+        // Prepare message
+        let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+        let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+
+        // Decide which message to show
+
+        if (computerChoice === "scissors") {
+            console.log(`You lose! ${computerChoiceCapitalized} beat ${humanChoiceCapitalized}!`);
+        } else {
+            console.log(`You lose! ${computerChoiceCapitalized} beats ${humanChoiceCapitalized}!`);
+        }
+        
     }
 }
 
@@ -53,7 +74,7 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     let humanSelection = "";
     let computerSelection = "";
-    const numberOfRounds = 2;
+    const numberOfRounds = 5;
 
     for (let i = 0; i < numberOfRounds; i++) {
         console.log(`Round number ${i + 1}:`);
