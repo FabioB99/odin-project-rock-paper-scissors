@@ -91,6 +91,8 @@ function playRound(humanChoice, computerChoice) {
             let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
             let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
             console.log(`You win! ${humanChoiceCapitalized} beats ${computerChoiceCapitalized}!`);
+            humanScore++;
+            console.log(humanScore);
     } else if (
         computerChoice === "rock" && humanChoice === "scissors" ||
         computerChoice === "paper" && humanChoice === "stone" ||
@@ -98,6 +100,8 @@ function playRound(humanChoice, computerChoice) {
             let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
             let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
             console.log(`You lose! ${computerChoiceCapitalized} beats ${humanChoiceCapitalized}!`);
+            computerScore++;
+            console.log(computerScore);
         }
 }
 
