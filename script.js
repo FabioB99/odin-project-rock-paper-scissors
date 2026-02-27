@@ -1,5 +1,8 @@
 console.log("Hello World");
 
+let humanScore = 0;
+let computerScore = 0;
+
 /*
 FUNCTION getComputerChoice
     SET randomNumber TO result of call randomInt(0, 2)
