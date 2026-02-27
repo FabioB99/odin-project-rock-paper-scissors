@@ -48,11 +48,26 @@ END FUNCTION
 
 function getHumanChoice () {
     let humanChoice = prompt("Please choose between rock, paper, or scissors");
-    if (humanChoice === "rock" | humanChoice === "paper" | humanChoice === "scissors") {
-        return humanChoice;
+    if (humanChoice === null | humanChoice === "" | humanChoice === undefined) {
+        alert("Please enter your choice!");
     } else {
-        alert("Please enter a valid choice!");
+        return humanChoice.toLowerCase();
     }
 }
 
 console.log("Human choice: " + getHumanChoice());
+
+/*
+FUNCTION getHumanChoice
+    CALL prompt() function and set humanChoice variable to choice 
+
+    IF humanChoice is Equal to "rock", "paper" OR scissors
+        RETURN humanChoice
+    ELSE 
+        SHOW alert to enter a valid choice
+END FUNCTION
+*/
+
+function playRound(humanChoice, computerChoice) {
+
+}
