@@ -1,7 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
-
 function getComputerChoice() {
     let number = getRandomInt(3);
 
@@ -29,23 +25,6 @@ function getHumanChoice() {
 }
 
 
-function playRound(humanChoice, computerChoice) {
-
-    if (humanChoice === computerChoice) {
-        console.log(`No one wins! Both chose ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}!`);
-
-    } else if (
-        humanChoice === "rock" && computerChoice === "scissors" ||
-        humanChoice === "paper" && computerChoice === "rock" ||
-        humanChoice === "scissors" && computerChoice === "paper") {
-        displayWinMessage(humanChoice, computerChoice);
-        humanScore++;
-    } else {
-        displayLossMessage(humanChoice, computerChoice)
-        computerScore++;
-    }
-}
-
 function displayWinMessage(humanChoice, computerChoice) {
     let humanChoiceCapitalized = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
     let computerChoiceCapitalized = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
@@ -70,9 +49,29 @@ function displayLossMessage(humanChoice, computerChoice) {
 
 
 function playGame() {
+
+    let humanScore = 0;
+    let computerScore = 0;
     let humanSelection = "";
     let computerSelection = "";
     const numberOfRounds = 5;
+
+    function playRound(humanChoice, computerChoice) {
+
+    if (humanChoice === computerChoice) {
+        console.log(`No one wins! Both chose ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}!`);
+
+    } else if (
+        humanChoice === "rock" && computerChoice === "scissors" ||
+        humanChoice === "paper" && computerChoice === "rock" ||
+        humanChoice === "scissors" && computerChoice === "paper") {
+        displayWinMessage(humanChoice, computerChoice);
+        humanScore++;
+    } else {
+        displayLossMessage(humanChoice, computerChoice)
+        computerScore++;
+    }
+    }
 
     for (let i = 0; i < numberOfRounds; i++) {
         console.log(`Round number ${i + 1}:`);
